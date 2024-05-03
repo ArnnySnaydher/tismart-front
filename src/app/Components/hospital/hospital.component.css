@@ -1,0 +1,81 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; /* Ajusta la altura de las columnas */
+    margin-top: 20px;
+  }
+  
+  .column {
+    flex: 1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Estilos para los campos del formulario */
+  .form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    margin-bottom: 5px;
+  }
+
+  /* Estilos para los botones */
+  .button-container {
+    flex: 1; /* Para que ocupe todo el espacio disponible verticalmente */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Alinea los botones verticalmente */
+  }
+
+  button {
+    width: 40%;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #519beb;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Estilos para los campos de entrada del formulario */
+  input[type="text"],
+  input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  /* .input-group {
+    position: block;
+    display: flex;
+    width: 100%;
+  } */
+  
+  /* .input-group-append {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 10px; 
+  } */

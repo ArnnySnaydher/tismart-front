@@ -1,0 +1,67 @@
+<h1>{{ modoModificar ? 'Modificar Hospital' : 'Registrar Hospital' }}</h1>
+<form (ngSubmit)="grabar()" >
+
+    <div class="form-group" *ngIf="modoModificar">
+        <label for="idHospital">idHospital:</label>
+        <input type="text"  id="idHospital" name="idHospital" 
+        [(ngModel)]="hospital.idHospital"
+        class="form-control" />
+        <div class="input-group-append" *ngIf="modoModificar">
+            <button class="btn btn-outline-secondary" type="button" (click)="Buscar()">Buscar
+            </button>
+          </div>
+      </div>
+  <div class="form-group">
+    <label for="idDistrito">idDistrito:</label>
+    <input type="text" id="idDistrito" name="idDistrito" 
+    [(ngModel)]="hospital.idDistrito" 
+    class="form-control"/>
+
+  </div>
+  <div class="form-group" >
+    <label for="nombre">Nombre:</label>
+    <input type="text"  id="nombre" name="nombre" 
+    [(ngModel)]="hospital.nombre"
+    [readonly]="modoModificar" 
+    class="form-control" />
+  </div>
+  <div class="form-group" *ngIf="!modoModificar">
+    <label for="Antiguedad">Antiguedad:</label>
+    <input type="text" id="Antiguedad" name="Antiguedad"
+    [(ngModel)]="hospital.antiguedad" 
+    class="form-control" />
+  </div>
+  <div class="form-group" *ngIf="!modoModificar">
+    <label for="Area">Area:</label>
+    <input type="text" id="Area" name="Area" 
+    [(ngModel)]="hospital.area"
+    class="form-control" />
+  </div>
+  <div class="form-group">
+    <label for="IdSede">IdSede:</label>
+    <input type="text" id="IdSede" name="IdSede" 
+    [(ngModel)]="hospital.idSede"
+    class="form-control" />
+  </div>
+  <div class="form-group">
+    <label for="IdGerente">IdGerente:</label>
+    <input type="text" id="IdGerente" name="IdGerente" 
+    [(ngModel)]="hospital.idGerente"
+    class="form-control" />
+  </div>
+  <div class="form-group">
+    <label for="idCondicion">idCondicion:</label>
+    <input type="text" id="idCondicion" name="idCondicion"
+    [(ngModel)]="hospital.idCondicion"
+    class="form-control" />
+  </div>
+  <!-- <div class="form-group">
+    <label for="fecha">Fecha de registro:</label>
+    <input type="date" id="fecha" name="fecha" 
+    [(ngModel)]="hospital.fecha"class="form-control" />
+  </div> -->
+
+  <button type="submit" class="btn btn-primary">{{ modoModificar ? 'Modificar' : 'Grabar' }}</button>
+  <button type="button" (click)="limpiar()" class="btn btn-secondary">Limpiar</button>
+
+</form>

@@ -1,0 +1,32 @@
+<h1>Modificar Hospital</h1>
+<form (ngSubmit)="grabar()" >
+
+    <div class="form-group" >
+        <label for="idHospital">idHospital:</label>
+        <input type="text" id="idHospital" name="idHospital" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="idDistrito">idDistrito:</label>
+        <input type="text" id="idDistrito" name="idDistrito" class="form-control"/>
+    </div>
+
+    <div class="form-group">
+        <label for="IdSede">IdSede:</label>
+        <input type="text" id="IdSede" name="IdSede"class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="IdGerente">IdGerente:</label>
+        <input type="text" id="IdGerente" name="IdGerente"class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="idCondicion">idCondicion:</label>
+        <input type="text" id="idCondicion" name="idCondicion"  class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Grabar</button>
+    <button type="button" (click)="limpiar()" class="btn btn-secondary">Limpiar</button>
+
+</form>
