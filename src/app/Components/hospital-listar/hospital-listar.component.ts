@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgForOf } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-hospital-listar',
@@ -19,24 +20,39 @@ export class HospitalListarComponent implements OnInit {
   }
 
   obtenerHospitales(): void {
-    this.http.get<any[]>('http://localhost:8090/api/hospital/sp/listar')
+    this.http.get<any[]>('http://localhost:8090/tismart/obtained/oracle/obtener')
       .subscribe(data => {
         this.hospitales = data;
       });
   }
 
   eliminarHospital(idHospital: number): void {
-    this.http.delete(`http://localhost:8090/api/hospital/sp/${idHospital}`)
-      .subscribe(() => {
-        console.log('Hospital eliminado:', idHospital);
-         // Actualizar la lista después de eliminar
-         this.hospitales = this.hospitales.filter(hospital => hospital.idHospital !== idHospital);
-      }, error => {
-         // Actualizar la lista después de eliminar
-         this.hospitales = this.hospitales.filter(hospital => hospital.idHospital !== idHospital);
-        console.error('Error al eliminar hospital:', error);
-
-      });
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: '¿Quieres eliminar este hospital?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.http.delete(`http://localhost:8090/tismart/removed/oracle/${idHospital}`)
+          .subscribe(() => {
+            console.log('Hospital eliminado:', idHospital);
+            this.actualizarListaHospitales(idHospital);
+            Swal.fire('¡Eliminado!', 'El hospital ha sido eliminado.', 'success');
+          }, error => {
+            console.error('Error al eliminar hospital:', error);
+            Swal.fire('¡Error!', 'Hubo un problema al eliminar el hospital.', 'error');
+          });
+      }
+    });
+  }
+  
+  actualizarListaHospitales(idHospital: number): void {
+    this.hospitales = this.hospitales.filter(hospital => hospital.idHospital !== idHospital);
   }
 
   editarHospital(idHospital:any){

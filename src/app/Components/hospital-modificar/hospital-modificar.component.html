@@ -1,32 +1,59 @@
 <h1>Modificar Hospital</h1>
-<form (ngSubmit)="grabar()" >
+<form [formGroup]="hospitalForm" (ngSubmit)="modificar()" >
 
-    <div class="form-group" >
+    <div class="form-group">
         <label for="idHospital">idHospital:</label>
-        <input type="text" id="idHospital" name="idHospital" class="form-control" />
+        <input type="number" id="idHospital" formControlName="idHospital" class="form-control" />
+        <button type="button" (click)="buscar()">BuscarID</button>
+        <div *ngIf="hospitalForm.get('idHospital')?.invalid && (hospitalForm.get('idHospital')?.dirty || hospitalForm.get('idHospital')?.touched)"
+            class="error-messages">
+            <div *ngIf="hospitalForm.get('idHospital')?.errors?.['required']" class="error-text">El idHospital es requerido.</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="nombre">nombre:</label>
+        <input type="text" id="nombre" formControlName="nombre" class="form-control" />
     </div>
 
     <div class="form-group">
         <label for="idDistrito">idDistrito:</label>
-        <input type="text" id="idDistrito" name="idDistrito" class="form-control"/>
+        <input type="number" id="idDistrito" formControlName="idDistrito" class="form-control"/>
+        <div *ngIf="hospitalForm.get('idDistrito')?.invalid && (hospitalForm.get('idDistrito')?.dirty || hospitalForm.get('idDistrito')?.touched)"
+            class="error-messages">
+            <div *ngIf="hospitalForm.get('idDistrito')?.errors?.['required']" class="error-text">El idDistrito es requerido.</div>
+        </div>
     </div>
 
     <div class="form-group">
         <label for="IdSede">IdSede:</label>
-        <input type="text" id="IdSede" name="IdSede"class="form-control" />
+        <input type="number" id="IdSede" formControlName="idSede" class="form-control" />
+        <div *ngIf="hospitalForm.get('idSede')?.invalid && (hospitalForm.get('idSede')?.dirty || hospitalForm.get('idSede')?.touched)"
+            class="error-messages">
+            <div *ngIf="hospitalForm.get('idSede')?.errors?.['required']" class="error-text">El idSede es requerido.</div>
+        </div>
     </div>
 
     <div class="form-group">
         <label for="IdGerente">IdGerente:</label>
-        <input type="text" id="IdGerente" name="IdGerente"class="form-control" />
+        <input type="number" id="IdGerente" formControlName="idGerente" class="form-control" />
+        <div *ngIf="hospitalForm.get('idGerente')?.invalid && (hospitalForm.get('idGerente')?.dirty || hospitalForm.get('idGerente')?.touched)"
+            class="error-messages">
+            <div *ngIf="hospitalForm.get('idGerente')?.errors?.['required']" class="error-text">El idGerente es requerido.</div>
+        </div>
     </div>
 
     <div class="form-group">
         <label for="idCondicion">idCondicion:</label>
-        <input type="text" id="idCondicion" name="idCondicion"  class="form-control" />
+        <input type="number" id="idCondicion" formControlName="idCondicion" class="form-control" />
+        <div *ngIf="hospitalForm.get('idCondicion')?.invalid && (hospitalForm.get('idCondicion')?.dirty || hospitalForm.get('idCondicion')?.touched)"
+            class="error-messages">
+            <div *ngIf="hospitalForm.get('idCondicion')?.errors?.['required']" class="error-text">El idCondicion es requerido.</div>
+        </div>
     </div>
+    
 
-    <button type="submit" class="btn btn-primary">Grabar</button>
+    <button type="submit" class="btn btn-primary"[disabled]="hospitalForm.invalid || !hospitalEncontrado" >Modificar</button>
     <button type="button" (click)="limpiar()" class="btn btn-secondary">Limpiar</button>
 
 </form>

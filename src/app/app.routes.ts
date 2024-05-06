@@ -8,9 +8,9 @@ export const routes: Routes = [
     {
         path:'ingresar', component:HospitalComponent
     },
-    {
-        path:'modificar',component:HospitalComponent
-    },
+    // {
+    //     path:'modificar',component:HospitalComponent
+    // },
     {
         path:'eliminar',component:HospitalListarComponent
     },

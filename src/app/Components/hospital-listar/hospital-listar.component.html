@@ -1,18 +1,20 @@
-<h1>Listado de Hospitales</h1>
-  <table border="1">
+<h1 class="heading">Listado de Hospitales</h1>
+<table class="hospital-table">
+  <thead>
     <tr>
       <th>ID Distrito</th>
       <th>Nombre</th>
-      <th>Antiguedad</th>
-      <th>Area</th>
+      <th>Antigüedad</th>
+      <th>Área</th>
       <th>ID Sede</th>
       <th>ID Gerente</th>
-      <th>ID Condicion</th>
+      <th>ID Condición</th>
       <th>Fecha Registro</th>
-      <th>Accion</th>
+      <th>Acción</th>
     </tr>
+  </thead>
+  <tbody>
     <tr *ngFor="let hospital of hospitales">
-
       <td>{{ hospital.idDistrito }}</td>
       <td>{{ hospital.nombre }}</td>
       <td>{{ hospital.antiguedad }}</td>
@@ -22,7 +24,8 @@
       <td>{{ hospital.idCondicion }}</td>
       <td>{{ hospital.fechaRegistro }}</td>
       <td>
-        <button (click)="eliminarHospital(hospital.idHospital)">Eliminar</button> 
+        <button (click)="eliminarHospital(hospital.idHospital)" class="delete-button">Eliminar</button> 
       </td>
     </tr>
-  </table>
+  </tbody>
+</table>
