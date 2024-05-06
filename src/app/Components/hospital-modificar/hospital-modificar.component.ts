@@ -127,7 +127,7 @@ export class HospitalModificarComponent implements OnInit{
       },
       error => {
         console.error('Error:', error);
-        Swal.fire('Error', 'Ha ocurrido un error al actualizar el hospital', 'error');
+        Swal.fire('Error', 'Ha ocurrido un error al actualizar el hospital no hay ID encontrados', 'error');
       }
     );
   }

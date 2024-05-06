@@ -58,7 +58,7 @@ export class HospitalComponent implements OnInit {
         this.limpiar();
       },
       error: (error) => {
-        console.error('Error al registrar el hospital ... !', error);
+        console.error('Error al registrar el hospital revise los hay ID insertados... !', error);
       }
     });
 
